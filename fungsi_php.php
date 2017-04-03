@@ -10,3 +10,5 @@ $node[8] = chr(ord($node[8]) & 0x3f | 0x80); // set bits 6-7 to 10
 return strtoupper(vsprintf('%s%s%s%s%s%s%s%s', str_split(bin2hex($node), 4)));
 }
 ?>
+
+
