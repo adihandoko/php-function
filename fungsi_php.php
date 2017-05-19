@@ -47,4 +47,26 @@ if (!function_exists("pagging")) {
     }
 }
 
+if (!function_exists('post_curl')) {
+     function post_curl($url,$data=array())
+    {
+        //print_r($data);exit();
+    //url-ify the data for the POST
+    $field_string = http_build_query($data);
+
+            //open connection
+            $ch = curl_init();
+
+            //set the url, number of POST vars, POST data
+            curl_setopt($ch,CURLOPT_URL, $url);
+            curl_setopt($ch,CURLOPT_POST, 1);
+            curl_setopt($ch,CURLOPT_POSTFIELDS, $field_string);
+
+            //execute post
+            $result = curl_exec($ch);
+
+            //close connection
+            curl_close($ch);
+            }
+    }
 
